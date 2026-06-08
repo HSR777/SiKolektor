@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_home_root">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="90dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="28dp"
+            android:paddingTop="18dp"
+            android:paddingEnd="28dp"
+            android:paddingBottom="100dp">
+
+            <!-- HEADER PROFIL -->
+            <LinearLayout
+                android:id="@+id/layoutHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/iconProfile"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/bg_primary_button"
+                    android:gravity="center"
+                    android:text="👤"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvAppName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SILAKOR"
+                        android:textColor="@color/primary"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvCollectorName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Budi Santoso (NIK 12345)"
+                        android:textColor="#263A4A"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvCurrentTime"
+                    android:layout_width="76dp"
+                    android:layout_height="34dp"
+                    android:background="@drawable/bg_menu_secondary"
+                    android:gravity="center"
+                    android:text="20.08.20"
+                    android:textColor="@color/primary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- STATUS KERJA -->
+            <LinearLayout
+                android:id="@+id/cardStatusKerja"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_home_card"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:letterSpacing="0.12"
+                        android:text="STATUS KERJA"
+                        android:textColor="#122D40"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvStatusAktif"
+                        android:layout_width="68dp"
+                        android:layout_height="26dp"
+                        android:background="@drawable/bg_status_active"
+                        android:gravity="center"
+                        android:text="✓ Aktif"
+                        android:textColor="@color/secondary"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvDurasiKerja"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="04:26:05"
+                    android:textColor="@color/primary"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnAbsenPulang"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/bg_absen_pulang"
+                    android:backgroundTint="@null"
+                    android:text="Absen masuk"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+                <Button
+                    android:id="@+id/btnAbsenPulang"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/bg_absen_pulang"
+                    android:backgroundTint="@null"
+                    android:text="Absen Pulang"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- RINGKASAN KUNJUNGAN -->
+            <LinearLayout
+                android:id="@+id/layoutRingkasan"
+                android:layout_width="match_parent"
+                android:layout_height="92dp"
+                android:layout_marginTop="18dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="7dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_summary_box"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvTotalKunjungan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10"
+                        android:textColor="@color/primary"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total"
+                        android:textColor="@color/neutral"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginEnd="7dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_summary_box"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvSelesai"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:textColor="@color/secondary"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Selesai"
+                        android:textColor="@color/neutral"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="7dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_summary_box"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvBelum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7"
+                        android:textColor="@color/tertiary"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Belum"
+                        android:textColor="@color/neutral"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- MENU UTAMA -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Menu Utama"
+                android:textColor="#122D40"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/layoutMenuUtama"
+                android:layout_width="match_parent"
+                android:layout_height="116dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <!-- MENU DAFTAR KUNJUNGAN -->
+                <LinearLayout
+                    android:id="@+id/menuDaftarKunjungan"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_menu_primary"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:gravity="center"
+                        android:text="▣"
+                        android:textColor="@color/white"
+                        android:textSize="28sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:gravity="center"
+                        android:text="Daftar\nKunjungan"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- MENU LAPOR KENDALA -->
+                <LinearLayout
+                    android:id="@+id/menuLaporKendala"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_menu_secondary"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:gravity="center"
+                        android:text="⚠"
+                        android:textColor="@color/tertiary"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:gravity="center"
+                        android:text="Lapor\nKendala"
+                        android:textColor="#061B26"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- KUNJUNGAN TERDEKAT -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Kunjungan Terdekat"
+                android:textColor="#122D40"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/cardKunjunganTerdekat"
+                android:layout_width="match_parent"
+                android:layout_height="104dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_summary_box"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="92dp"
+                    android:layout_height="match_parent"
+                    android:background="#CBDDF0"
+                    android:gravity="center"
+                    android:text="♧"
+                    android:textColor="@color/primary"
+                    android:textSize="30sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="10dp">
+
+                    <TextView
+                        android:id="@+id/tvNearestName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="PT. Maju Bersama Jaya"
+                        android:textColor="#061B26"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvNearestAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="Jl. Sudirman No. 45, Jakarta..."
+                        android:textColor="@color/neutral"
+                        android:textSize="13sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="54dp"
+                            android:layout_height="22dp"
+                            android:background="#D8E7FF"
+                            android:gravity="center"
+                            android:text="0.8 KM"
+                            android:textColor="@color/primary"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="64dp"
+                            android:layout_height="22dp"
+                            android:layout_marginStart="6dp"
+                            android:background="#FFE2C6"
+                            android:gravity="center"
+                            android:text="12 Menit"
+                            android:textColor="#8A4A00"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- TOMBOL KE DAFTAR KUNJUNGAN -->
+            <Button
+                android:id="@+id/btnLihatDaftarKunjungan"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/bg_primary_button"
+                android:text="Lihat Daftar Kunjungan"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- BOTTOM NAVIGATION -->
+    <LinearLayout
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom"
+        android:background="#EAF7FF"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp">
+
+        <!-- HOME AKTIF -->
+        <LinearLayout
+            android:id="@+id/navHome"
+            android:layout_width="72dp"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_bottom_nav_active"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⌂"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <!-- KUNJUNGAN TIDAK AKTIF -->
+        <LinearLayout
+            android:id="@+id/navKunjungan"
+            android:layout_width="88dp"
+            android:layout_height="56dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="▣"
+                android:textColor="@color/neutral"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kunjungan"
+                android:textColor="@color/neutral"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <!-- HISTORY TIDAK AKTIF -->
+        <LinearLayout
+            android:id="@+id/navHistory"
+            android:layout_width="72dp"
+            android:layout_height="56dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/baseline_history_24"
+                android:tint="@color/neutral" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="History"
+                android:textColor="@color/neutral"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

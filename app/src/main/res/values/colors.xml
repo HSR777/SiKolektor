@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+    <!-- Main Palette -->
+    <color name="primary">#0D47A1</color>
+    <color name="secondary">#2E7D32</color>
+    <color name="tertiary">#F57C00</color>
+    <color name="neutral">#455A64</color>
+
+    <!-- Basic Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <!-- Login -->
+    <color name="login_card">#F4F8FC</color>
+    <color name="text_light_blue">#B8C8F5</color>
+
+    <!-- Input -->
+    <color name="input_bg">#EAF1F5</color>
+    <color name="input_stroke">#A7B2BC</color>
+    <color name="text_gray">#7D8892</color>
+
+    <!-- Status -->
+    <color name="success_text">#1B6D24</color>
+
 </resources>
