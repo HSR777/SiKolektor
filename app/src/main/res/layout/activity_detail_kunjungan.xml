@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_home_root">
@@ -31,7 +32,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:gravity="center"
-                    android:text="‹"
+                    android:text="@string/btn_back_icon"
                     android:textColor="@color/primary"
                     android:textSize="32sp"
                     android:textStyle="bold" />
@@ -217,14 +218,13 @@
                         android:textSize="11sp"
                         android:textStyle="bold" />
 
-                    <Button
+                    <TextView
                         android:id="@+id/btnPetunjuk"
                         android:layout_width="95dp"
                         android:layout_height="38dp"
                         android:background="@drawable/bg_primary_button"
-                        android:backgroundTint="@null"
+                        android:gravity="center"
                         android:text="Petunjuk"
-                        android:textAllCaps="false"
                         android:textColor="@color/white"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -328,7 +328,7 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:src="@drawable/home_icon"
-                android:tint="@color/neutral" />
+                app:tint="@color/neutral" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -356,7 +356,7 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:src="@drawable/kunjungan_icon"
-                android:tint="@color/neutral" />
+                app:tint="@color/neutral" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -384,7 +384,7 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:src="@drawable/history_24"
-                android:tint="@color/white" />
+                app:tint="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"

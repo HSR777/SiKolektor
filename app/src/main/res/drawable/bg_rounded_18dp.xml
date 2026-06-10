@@ -1,0 +1,11 @@
+<!-- Chip Semua (Aktif) -->
+<TextView
+    android:background="@drawable/bg_rounded_18dp"
+    android:backgroundTint="@color/primary"
+    android:textColor="@color/white" ... />
+
+    <!-- Chip Prioritas (Tidak Aktif) -->
+<TextView
+android:background="@drawable/bg_rounded_18dp"
+android:backgroundTint="#D7E9F3"
+android:textColor="#061B26" ... />

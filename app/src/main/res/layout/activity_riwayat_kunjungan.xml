@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_home_root">
@@ -358,7 +359,7 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:src="@drawable/home_icon"
-                android:tint="@color/neutral" />
+                app:tint="@color/neutral" />
 
 
             <TextView
@@ -386,7 +387,7 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:src="@drawable/kunjungan_icon"
-                android:tint="@color/neutral" />
+                app:tint="@color/neutral" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -415,7 +416,7 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:src="@drawable/history_24"
-                android:tint="@color/white" />
+                app:tint="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"

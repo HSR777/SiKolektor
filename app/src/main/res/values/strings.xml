@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SiKolektor</string>
+    <string name="btn_back_icon">&#8249;</string>
 </resources>

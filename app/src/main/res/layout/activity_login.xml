@@ -110,15 +110,14 @@
                 android:textSize="15sp" />
 
             <!-- Button Masuk -->
-            <Button
+            <TextView
                 android:id="@+id/btnMasuk"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/bg_button_login"
-                android:backgroundTint="@null"
+                android:gravity="center"
                 android:text="Masuk"
-                android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold" />
