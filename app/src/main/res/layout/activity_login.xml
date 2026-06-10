@@ -136,8 +136,7 @@
                     android:id="@+id/cbRemember"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/white"
-                    android:checked="true" />
+                    android:checked="false" />
 
                 <TextView
                     android:id="@+id/tvRemember"
@@ -168,7 +167,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="46dp"
             android:letterSpacing="0.08"
-            android:text="V 2.4.0 • By HSRnDIJ Communty"
+            android:text="V 2.4.0 • By HSR n DIJ Communty"
             android:textColor="#8FA4C7"
             android:textSize="11sp"
             android:textStyle="bold" />

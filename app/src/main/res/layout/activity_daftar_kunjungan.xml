@@ -42,32 +42,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
-                    android:text="Daftar\nKunjungan"
+                    android:text="Daftar Kunjungan"
                     android:textColor="@color/primary"
                     android:textSize="23sp"
                     android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tvCurrentTime"
-                    android:layout_width="76dp"
-                    android:layout_height="34dp"
-                    android:background="@drawable/bg_menu_secondary"
-                    android:gravity="center"
-                    android:text="08:45:12"
-                    android:textColor="@color/primary"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/iconProfile"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:layout_marginStart="10dp"
-                    android:background="@drawable/bg_primary_button"
-                    android:gravity="center"
-                    android:text="👤"
-                    android:textColor="@color/white"
-                    android:textSize="15sp" />
             </LinearLayout>
 
             <!-- SEARCH BAR -->
@@ -183,14 +161,6 @@
                         android:textColor="@color/neutral"
                         android:textSize="11sp"
                         android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="➤ 1.2 KM"
-                        android:textColor="@color/secondary"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <TextView
@@ -198,7 +168,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="7dp"
-                    android:text="Bpk. Budi Sudarsono"
+                    android:text="Budi Sudarsono"
                     android:textColor="#061B26"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -210,13 +180,6 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="26dp"
-                        android:layout_height="wrap_content"
-                        android:text="⌖"
-                        android:textColor="#607D8B"
-                        android:textSize="21sp" />
-
-                    <TextView
                         android:id="@+id/tvAlamatPrioritas"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -226,12 +189,6 @@
                         android:textColor="@color/neutral"
                         android:textSize="12sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="± 15 Menit"
-                        android:textColor="#607D8B"
-                        android:textSize="10sp" />
                 </LinearLayout>
 
                 <Button
@@ -284,13 +241,6 @@
                         android:textSize="11sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="➤ 3.5 KM"
-                        android:textColor="@color/secondary"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <TextView
@@ -298,7 +248,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="7dp"
-                    android:text="Ibu Siti Aminah"
+                    android:text="Siti Aminah"
                     android:textColor="#061B26"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -310,13 +260,6 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="26dp"
-                        android:layout_height="wrap_content"
-                        android:text="⌖"
-                        android:textColor="#607D8B"
-                        android:textSize="21sp" />
-
-                    <TextView
                         android:id="@+id/tvAlamatTerjadwal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -325,13 +268,6 @@
                         android:text="Gg. Kelinci No. 12, Sawah Besar, Jakarta\nPusat, DKI Jakarta - 10710"
                         android:textColor="@color/neutral"
                         android:textSize="12sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="± 25 Menit"
-                        android:textColor="#607D8B"
-                        android:textSize="10sp" />
                 </LinearLayout>
 
                 <Button
@@ -349,12 +285,13 @@
             </LinearLayout>
 
             <!-- CARD SELESAI -->
+
             <LinearLayout
                 android:id="@+id/cardSelesai"
                 android:layout_width="match_parent"
                 android:layout_height="108dp"
                 android:layout_marginTop="14dp"
-                android:background="@drawable/bg_visit_card"
+                android:background="@drawable/bg_visit_card_done"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:padding="15dp">
@@ -381,8 +318,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
-                        android:text="Bpk. Agus Salim"
-                        android:textColor="@color/neutral"
+                        android:text="Agus Salim"
+                        android:textColor="@color/black"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -393,21 +330,11 @@
                         android:layout_marginTop="5dp"
                         android:ellipsize="end"
                         android:maxLines="2"
-                        android:text="⌖  Jl. Kramat Raya No. 101, Senen, Jakarta Pusat..."
+                        android:text="Jl. Kramat Raya No. 101, Senen, Jakarta Pusat..."
                         android:textColor="#607D8B"
                         android:textSize="12sp" />
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/btnMapSelesai"
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
-                    android:background="@drawable/bg_primary_button"
-                    android:gravity="center"
-                    android:text="⌖"
-                    android:textColor="@color/white"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
             </LinearLayout>
 
         </LinearLayout>
@@ -433,19 +360,19 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="⌂"
-                android:textColor="@color/neutral"
-                android:textSize="20sp" />
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/home_icon"
+                android:tint="@color/neutral" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Home"
                 android:textColor="@color/neutral"
-                android:textSize="10sp" />
+                android:textSize="10sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <Space
@@ -462,21 +389,18 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="▣"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/kunjungan_icon"
+                android:tint="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Kunjungan"
                 android:textColor="@color/white"
-                android:textSize="10sp"
-                android:textStyle="bold" />
+                android:textSize="10sp" />
         </LinearLayout>
 
         <Space
@@ -496,7 +420,7 @@
             <ImageView
                 android:layout_width="22dp"
                 android:layout_height="22dp"
-                android:src="@drawable/baseline_history_24"
+                android:src="@drawable/history_24"
                 android:tint="@color/neutral" />
 
             <TextView
