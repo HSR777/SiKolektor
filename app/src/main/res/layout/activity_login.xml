@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="22dp"
             android:letterSpacing="0.04"
-            android:text="SILAKOR"
+            android:text="SIKOLEKTOR"
             android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -34,7 +34,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:lineSpacingExtra="2dp"
-            android:text="Sistem Informasi Laporan Absensi &amp;\nKunjungan Kolektor"
+            android:text=""
             android:textColor="@color/text_light_blue"
             android:textSize="18sp"
             android:textStyle="bold" />
