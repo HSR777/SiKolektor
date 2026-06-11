@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
@@ -36,6 +37,7 @@ public class HomeFragment extends Fragment {
 
     private TextView tvCollectorName, tvCollectorNik;
     private Button btnAbsenMasuk, btnSimpanKunjungan;
+    private ImageButton btnLogout;
     private EditText etNamaNasabah, etKeteranganKunjungan;
     private SharedPreferences sharedPreferences;
     
@@ -85,10 +87,25 @@ public class HomeFragment extends Fragment {
         // Inisialisasi komponen profil kolektor (Kriteria 2)
         tvCollectorName = view.findViewById(R.id.tvAppName);
         tvCollectorNik = view.findViewById(R.id.tvCollectorName);
+        btnLogout = view.findViewById(R.id.btnLogout);
+        
         sharedPreferences = requireActivity().getSharedPreferences("SiKolektorPrefs", Context.MODE_PRIVATE);
         
         tvCollectorName.setText(sharedPreferences.getString("nama", "User"));
         tvCollectorNik.setText("(NIK " + sharedPreferences.getString("nik", "-") + ")");
+
+        // Logika Logout
+        btnLogout.setOnClickListener(v -> {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.clear();
+            editor.apply();
+
+            Toast.makeText(getContext(), "Berhasil keluar", Toast.LENGTH_SHORT).show();
+            
+            Intent intent = new Intent(requireActivity(), LoginActivity.class);
+            startActivity(intent);
+            requireActivity().finish();
+        });
 
         // Inisialisasi komponen form (User Flow Gambar 2)
         btnAbsenMasuk = view.findViewById(R.id.btnAbsenMasuk);

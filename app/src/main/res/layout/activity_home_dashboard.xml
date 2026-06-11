@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_home_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -52,6 +53,17 @@
                         android:textColor="#263A4A"
                         android:textSize="11sp" />
                 </LinearLayout>
+
+                <!-- Tombol Logout di pojok kanan atas -->
+                <ImageButton
+                    android:id="@+id/btnLogout"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/logout"
+                    android:padding="8dp"
+                    android:src="@android:drawable/ic_lock_power_off"
+                    app:tint="@color/primary" />
             </LinearLayout>
 
             <!-- FORM ABSENSI (Kriteria 3 & 8) -->
