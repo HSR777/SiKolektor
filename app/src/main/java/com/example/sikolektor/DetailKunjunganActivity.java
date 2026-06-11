@@ -14,8 +14,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -24,7 +31,7 @@ import java.util.Locale;
 import java.util.concurrent.Executors;
 
 // Mengelola detail kunjungan nasabah, pengambilan bukti foto, dan simpan status (Tahap 6)
-public class DetailKunjunganActivity extends AppCompatActivity {
+public class DetailKunjunganActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private TextView tvNama, tvWaktu, tvId, tvKoordinat;
     private EditText etCatatan;
@@ -34,6 +41,7 @@ public class DetailKunjunganActivity extends AppCompatActivity {
     
     private Kunjungan currentKunjungan;
     private String currentPhotoPath;
+    private GoogleMap mMap;
 
     private final ActivityResultLauncher<Intent> cameraLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -69,10 +77,27 @@ public class DetailKunjunganActivity extends AppCompatActivity {
 
         if (currentKunjungan != null) {
             displayData();
+            // Inisialisasi Map
+            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                    .findFragmentById(R.id.mapFragment);
+            if (mapFragment != null) {
+                mapFragment.getMapAsync(this);
+            }
         }
 
         btnAmbilFoto.setOnClickListener(v -> dispatchTakePictureIntent());
         btnSimpan.setOnClickListener(v -> saveKunjungan());
+    }
+
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        mMap = googleMap;
+        if (currentKunjungan != null) {
+            LatLng location = new LatLng(currentKunjungan.latitude, currentKunjungan.longitude);
+            mMap.addMarker(new MarkerOptions().position(location).title(currentKunjungan.namaNasabah));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15f));
+            mMap.getUiSettings().setZoomControlsEnabled(true);
+        }
     }
 
     private void displayData() {

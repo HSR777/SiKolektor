@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_home_root">
@@ -126,26 +127,34 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- MAP PREVIEW (Gaya Original) -->
-            <FrameLayout
-                android:id="@+id/layoutMap"
+            <!-- MAP PREVIEW (Google Maps SDK) -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="180dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/bg_map_preview">
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp">
+
+                <fragment
+                    android:id="@+id/mapFragment"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
                 <TextView
                     android:id="@+id/tvKoordinat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginBottom="10dp"
-                    android:background="#80FFFFFF"
-                    android:padding="4dp"
-                    android:text="0.0, 0.0"
+                    android:layout_gravity="bottom|start"
+                    android:layout_margin="10dp"
+                    android:background="#CCFFFFFF"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:text="@string/dummy_coordinates"
                     android:textColor="@color/primary"
-                    android:textSize="12sp"
+                    android:textSize="10sp"
                     android:textStyle="bold" />
-            </FrameLayout>
+            </androidx.cardview.widget.CardView>
 
             <!-- BUKTI FOTO KUNJUNGAN (Revisi Tahap 6) -->
             <TextView
