@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_login_gradient">
@@ -12,8 +13,6 @@
         android:paddingStart="38dp"
         android:paddingTop="28dp"
         android:paddingEnd="38dp">
-
-
 
         <!-- Nama aplikasi -->
         <TextView
@@ -91,23 +90,30 @@
                 android:textSize="13sp"
                 android:textStyle="bold" />
 
-            <!-- Input Password -->
-            <EditText
-                android:id="@+id/etPassword"
+            <!-- Input Password dengan Toggle Mata -->
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="54dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:background="@drawable/bg_input"
-                android:drawableEnd="@android:drawable/ic_menu_view"
-                android:drawablePadding="12dp"
-                android:hint="••••••••"
-                android:inputType="textPassword"
-                android:paddingStart="14dp"
-                android:paddingEnd="14dp"
-                android:singleLine="true"
-                android:textColor="@color/neutral"
-                android:textColorHint="@color/text_gray"
-                android:textSize="15sp" />
+                app:hintEnabled="false"
+                app:boxBackgroundMode="none"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/primary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:background="@drawable/bg_input"
+                    android:hint="••••••••"
+                    android:inputType="textPassword"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:singleLine="true"
+                    android:textColor="@color/neutral"
+                    android:textColorHint="@color/text_gray"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Button Masuk -->
             <Button
