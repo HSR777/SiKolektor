@@ -17,6 +17,10 @@ public class Kunjungan implements Parcelable {
     public double latitude;
     public double longitude;
     public String waktu;
+    
+    // Penambahan field sesuai revisi (Tahap 1)
+    public String status; // Prioritas, Terjadwal, Berhasil, Rumah Kosong
+    public boolean isVisited;
 
     // Konstruktor kosong yang dibutuhkan oleh Room
     public Kunjungan() {}
@@ -30,6 +34,8 @@ public class Kunjungan implements Parcelable {
         latitude = in.readDouble();
         longitude = in.readDouble();
         waktu = in.readString();
+        status = in.readString();
+        isVisited = in.readByte() != 0;
     }
 
     // Pembuat objek Kunjungan dari data Parcel
@@ -60,5 +66,7 @@ public class Kunjungan implements Parcelable {
         dest.writeDouble(latitude);
         dest.writeDouble(longitude);
         dest.writeString(waktu);
+        dest.writeString(status);
+        dest.writeByte((byte) (isVisited ? 1 : 0));
     }
 }

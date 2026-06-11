@@ -38,6 +38,10 @@
         <activity android:name=".MainActivity" android:exported="false" />
         <activity android:name=".DetailKunjunganActivity" android:exported="false" />
 
+        <!-- Alur Absensi (Tahap 5) -->
+        <activity android:name=".AbsenMasukActivity" android:exported="false" />
+        <activity android:name=".AbsenPulangActivity" android:exported="false" />
+
         <!-- Service & Receiver (Kriteria 8) -->
         <service android:name=".WorkTimerService" android:exported="false" />
         <receiver android:name=".BatteryReceiver" android:exported="true">

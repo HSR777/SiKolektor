@@ -5,32 +5,39 @@ import android.os.Parcelable;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-// Mendefinisikan tabel untuk menyimpan data absensi kolektor
+// Mendefinisikan tabel untuk menyimpan data absensi kolektor (Tahap 1: Mendukung Absen Masuk & Pulang)
 @Entity(tableName = "tabel_absen")
 public class Absen implements Parcelable {
 
     @PrimaryKey(autoGenerate = true)
     public int id;
-    public String nama;
-    public String waktu;
-    public String fotoPath;
+    public String nik;
+    public String waktuMasuk;
+    public String waktuPulang;
+    public String fotoMasukPath;
+    public String fotoPulangPath;
+    public String catatanMasuk;
+    public String catatanPulang;
+    public String durasiKerja;
     public double latitude;
     public double longitude;
 
-    // Konstruktor kosong yang dibutuhkan oleh Room
     public Absen() {}
 
-    // Membaca data dari Parcel untuk implementasi Parcelable
     protected Absen(Parcel in) {
         id = in.readInt();
-        nama = in.readString();
-        waktu = in.readString();
-        fotoPath = in.readString();
+        nik = in.readString();
+        waktuMasuk = in.readString();
+        waktuPulang = in.readString();
+        fotoMasukPath = in.readString();
+        fotoPulangPath = in.readString();
+        catatanMasuk = in.readString();
+        catatanPulang = in.readString();
+        durasiKerja = in.readString();
         latitude = in.readDouble();
         longitude = in.readDouble();
     }
 
-    // Objek pembuat untuk implementasi Parcelable
     public static final Creator<Absen> CREATOR = new Creator<Absen>() {
         @Override
         public Absen createFromParcel(Parcel in) {
@@ -48,13 +55,17 @@ public class Absen implements Parcelable {
         return 0;
     }
 
-    // Menulis data ke Parcel agar bisa dikirim antar activity
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
-        dest.writeString(nama);
-        dest.writeString(waktu);
-        dest.writeString(fotoPath);
+        dest.writeString(nik);
+        dest.writeString(waktuMasuk);
+        dest.writeString(waktuPulang);
+        dest.writeString(fotoMasukPath);
+        dest.writeString(fotoPulangPath);
+        dest.writeString(catatanMasuk);
+        dest.writeString(catatanPulang);
+        dest.writeString(durasiKerja);
         dest.writeDouble(latitude);
         dest.writeDouble(longitude);
     }

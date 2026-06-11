@@ -1,60 +1,160 @@
 package com.example.sikolektor;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.concurrent.Executors;
 
-// Menampilkan detail lengkap kunjungan nasabah yang dikirim melalui Intent Parcelable
+// Mengelola detail kunjungan nasabah, pengambilan bukti foto, dan simpan status (Tahap 6)
 public class DetailKunjunganActivity extends AppCompatActivity {
 
-    private TextView tvNama, tvWaktu, tvId, tvKoordinat, tvCatatan, tvFotoPlaceholder;
+    private TextView tvNama, tvWaktu, tvId, tvKoordinat;
+    private EditText etCatatan;
+    private CheckBox cbRumahKosong;
     private ImageView ivFotoBukti;
+    private Button btnAmbilFoto, btnSimpan;
+    
+    private Kunjungan currentKunjungan;
+    private String currentPhotoPath;
+
+    private final ActivityResultLauncher<Intent> cameraLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == RESULT_OK) {
+                    ivFotoBukti.setImageURI(Uri.fromFile(new File(currentPhotoPath)));
+                    btnAmbilFoto.setText("Ubah Foto");
+                }
+            }
+    );
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_kunjungan);
 
-        // Inisialisasi komponen tampilan berdasarkan ID di layout
+        // Inisialisasi UI
         tvNama = findViewById(R.id.tvNamaCustomer);
         tvWaktu = findViewById(R.id.tvWaktuKunjungan);
         tvId = findViewById(R.id.tvIdTransaksi);
         tvKoordinat = findViewById(R.id.tvKoordinat);
-        tvCatatan = findViewById(R.id.tvCatatan);
+        
         ivFotoBukti = findViewById(R.id.ivFotoBukti);
-        tvFotoPlaceholder = findViewById(R.id.tvFotoPlaceholder);
+        btnAmbilFoto = findViewById(R.id.btnAmbilFotoKunjungan);
+        etCatatan = findViewById(R.id.etCatatanKunjungan);
+        cbRumahKosong = findViewById(R.id.cbRumahKosong);
+        btnSimpan = findViewById(R.id.btnSimpanKunjungan);
 
-        // Menangani tombol kembali
         findViewById(R.id.btnBack).setOnClickListener(v -> finish());
 
-        // Menerima data Kunjungan (Parcelable) dari RiwayatFragment (Memenuhi Kriteria 7)
-        Kunjungan data = getIntent().getParcelableExtra("DATA_KUNJUNGAN");
+        // Menerima data Kunjungan
+        currentKunjungan = getIntent().getParcelableExtra("DATA_KUNJUNGAN");
 
-        if (data != null) {
-            tvNama.setText(data.namaNasabah);
-            tvWaktu.setText(data.waktu);
-            tvId.setText("#SKL-" + data.id);
-            tvCatatan.setText(data.keterangan);
+        if (currentKunjungan != null) {
+            displayData();
+        }
+
+        btnAmbilFoto.setOnClickListener(v -> dispatchTakePictureIntent());
+        btnSimpan.setOnClickListener(v -> saveKunjungan());
+    }
+
+    private void displayData() {
+        tvNama.setText(currentKunjungan.namaNasabah);
+        tvWaktu.setText(currentKunjungan.waktu);
+        tvId.setText("#SKL-" + currentKunjungan.id);
+        tvKoordinat.setText(currentKunjungan.latitude + ", " + currentKunjungan.longitude);
+
+        // Jika sudah dikunjungi (mode riwayat)
+        if (currentKunjungan.isVisited) {
+            etCatatan.setText(currentKunjungan.keterangan);
+            etCatatan.setEnabled(false);
+            cbRumahKosong.setChecked("Rumah Kosong".equals(currentKunjungan.status));
+            cbRumahKosong.setEnabled(false);
+            btnAmbilFoto.setVisibility(View.GONE);
+            btnSimpan.setVisibility(View.GONE);
             
-            // Menampilkan Foto Bukti (Kriteria 3)
-            if (data.fotoRumahPath != null && !data.fotoRumahPath.equals("no_photo_yet") && !data.fotoRumahPath.equals("dummy_res_placeholder")) {
-                File imgFile = new File(data.fotoRumahPath);
+            if (currentKunjungan.fotoRumahPath != null) {
+                File imgFile = new File(currentKunjungan.fotoRumahPath);
                 if (imgFile.exists()) {
                     ivFotoBukti.setImageURI(Uri.fromFile(imgFile));
-                    tvFotoPlaceholder.setVisibility(View.GONE);
                 }
             }
-            
-            // Menampilkan koordinat GPS (Memenuhi Kriteria 4)
-            if (data.latitude == 0 && data.longitude == 0) {
-                tvKoordinat.setText("-6.2000° S,\n106.8166° E (Lokasi Dummy)");
-            } else {
-                tvKoordinat.setText(data.latitude + "° S,\n" + data.longitude + "° E");
-            }
         }
+    }
+
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        File photoFile = null;
+        try {
+            photoFile = createImageFile();
+        } catch (IOException ex) {
+            Toast.makeText(this, "Gagal membuat file gambar", Toast.LENGTH_SHORT).show();
+        }
+
+        if (photoFile != null) {
+            Uri photoURI = FileProvider.getUriForFile(this,
+                    "com.example.sikolektor.fileprovider",
+                    photoFile);
+            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+            cameraLauncher.launch(takePictureIntent);
+        }
+    }
+
+    private File createImageFile() throws IOException {
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
+        String imageFileName = "VISIT_" + timeStamp + "_";
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(imageFileName, ".jpg", storageDir);
+        currentPhotoPath = image.getAbsolutePath();
+        return image;
+    }
+
+    private void saveKunjungan() {
+        if (currentPhotoPath == null && !cbRumahKosong.isChecked()) {
+            Toast.makeText(this, "Ambil bukti foto atau centang Rumah Kosong!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String catatan = etCatatan.getText().toString();
+        if (catatan.isEmpty()) {
+            Toast.makeText(this, "Catatan kunjungan wajib diisi!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        currentKunjungan.keterangan = catatan;
+        currentKunjungan.fotoRumahPath = currentPhotoPath;
+        currentKunjungan.isVisited = true;
+        currentKunjungan.waktu = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(new Date());
+        
+        if (cbRumahKosong.isChecked()) {
+            currentKunjungan.status = "Rumah Kosong";
+        } else {
+            currentKunjungan.status = "Berhasil";
+        }
+
+        Executors.newSingleThreadExecutor().execute(() -> {
+            AppDatabase.getInstance(this).appDao().updateKunjungan(currentKunjungan);
+            runOnUiThread(() -> {
+                Toast.makeText(this, "Laporan kunjungan berhasil disimpan", Toast.LENGTH_SHORT).show();
+                finish();
+            });
+        });
     }
 }

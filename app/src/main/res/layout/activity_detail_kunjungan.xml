@@ -6,8 +6,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="90dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -16,16 +15,14 @@
             android:paddingStart="28dp"
             android:paddingTop="24dp"
             android:paddingEnd="28dp"
-            android:paddingBottom="110dp">
+            android:paddingBottom="40dp">
 
             <!-- HEADER -->
             <LinearLayout
-                android:id="@+id/layoutHeaderDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-
                 <TextView
                     android:id="@+id/btnBack"
                     android:layout_width="40dp"
@@ -35,7 +32,6 @@
                     android:textColor="@color/primary"
                     android:textSize="32sp"
                     android:textStyle="bold" />
-
                 <TextView
                     android:id="@+id/tvTitleDetail"
                     android:layout_width="0dp"
@@ -48,7 +44,7 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <!-- CUSTOMER CARD -->
+            <!-- CUSTOMER CARD (Gaya Original) -->
             <LinearLayout
                 android:id="@+id/cardCustomer"
                 android:layout_width="match_parent"
@@ -57,50 +53,22 @@
                 android:background="@drawable/bg_detail_card"
                 android:orientation="vertical"
                 android:padding="20dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="top"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:letterSpacing="0.08"
-                            android:text="NASABAH"
-                            android:textColor="#122D40"
-                            android:textSize="10sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tvNamaCustomer"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="6dp"
-                            android:text="Ahmad Subarjo"
-                            android:textColor="#061B26"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/tvStatusSelesai"
-                        android:layout_width="74dp"
-                        android:layout_height="26dp"
-                        android:background="@drawable/bg_status_done"
-                        android:gravity="center"
-                        android:text="Selesai"
-                        android:textColor="@color/secondary"
-                        android:textSize="11sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                    android:text="NASABAH"
+                    android:textColor="#122D40"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvNamaCustomer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Nama Nasabah"
+                    android:textColor="#061B26"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
                 <View
                     android:layout_width="match_parent"
@@ -113,50 +81,44 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical">
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Waktu Kunjungan"
                             android:textColor="#122D40"
                             android:textSize="11sp" />
-
                         <TextView
                             android:id="@+id/tvWaktuKunjungan"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="14 Okt 2023,\n08:32"
+                            android:text="--"
                             android:textColor="#061B26"
                             android:textSize="15sp"
                             android:textStyle="bold" />
                     </LinearLayout>
-
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical">
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="ID Transaksi"
                             android:textColor="#122D40"
                             android:textSize="11sp" />
-
                         <TextView
                             android:id="@+id/tvIdTransaksi"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="#SKL-99201"
+                            android:text="#SKL---"
                             android:textColor="#061B26"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -164,101 +126,55 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- MAP PREVIEW -->
+            <!-- MAP PREVIEW (Gaya Original) -->
             <FrameLayout
                 android:id="@+id/layoutMap"
                 android:layout_width="match_parent"
-                android:layout_height="198dp"
-                android:layout_marginTop="22dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/bg_map_preview">
-
                 <TextView
-                    android:id="@+id/iconMapPin"
-                    android:layout_width="46dp"
-                    android:layout_height="46dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/bg_primary_button"
-                    android:gravity="center"
-                    android:text="●"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
-
-                <LinearLayout
-                    android:id="@+id/layoutMapInfo"
-                    android:layout_width="match_parent"
-                    android:layout_height="58dp"
-                    android:layout_gravity="bottom"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginEnd="14dp"
-                    android:layout_marginBottom="22dp"
-                    android:background="@drawable/bg_map_info"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingStart="14dp"
-                    android:paddingEnd="12dp">
-
-                    <TextView
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:background="@drawable/bg_primary_button"
-                        android:gravity="center"
-                        android:text="⌖"
-                        android:textColor="@color/white"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/tvKoordinat"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"
-                        android:text="-6.2088° S,\n106.8456° E"
-                        android:textColor="@color/neutral"
-                        android:textSize="11sp"
-                        android:textStyle="bold" />
-
-                    <Button
-                        android:id="@+id/btnPetunjuk"
-                        android:layout_width="95dp"
-                        android:layout_height="38dp"
-                        android:background="@drawable/bg_primary_button"
-                        android:backgroundTint="@null"
-                        android:text="Petunjuk"
-                        android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        android:textSize="11sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                    android:id="@+id/tvKoordinat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:background="#80FFFFFF"
+                    android:padding="4dp"
+                    android:text="0.0, 0.0"
+                    android:textColor="@color/primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
             </FrameLayout>
 
-            <!-- BUKTI FOTO -->
+            <!-- BUKTI FOTO KUNJUNGAN (Revisi Tahap 6) -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:letterSpacing="0.08"
-                android:text="BUKTI FOTO"
+                android:text="BUKTI FOTO KUNJUNGAN"
                 android:textColor="#122D40"
                 android:textSize="12sp"
                 android:textStyle="bold" />
-
             <FrameLayout
-                android:id="@+id/layoutBuktiFoto"
+                android:id="@+id/layoutFotoKunjungan"
                 android:layout_width="match_parent"
-                android:layout_height="278dp"
+                android:layout_height="220dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/bg_photo_preview">
-
-                <TextView
-                    android:id="@+id/tvFotoPlaceholder"
+                <ImageView
+                    android:id="@+id/ivFotoBukti"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="Foto Lokasi"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
+                    android:scaleType="centerCrop" />
+                <Button
+                    android:id="@+id/btnAmbilFotoKunjungan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/primary"
+                    android:text="Ambil Foto"
+                    android:textColor="@color/white" />
             </FrameLayout>
 
             <!-- CATATAN KUNJUNGAN -->
@@ -266,136 +182,44 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:letterSpacing="0.08"
                 android:text="CATATAN KUNJUNGAN"
                 android:textColor="#122D40"
                 android:textSize="12sp"
                 android:textStyle="bold" />
+            <EditText
+                android:id="@+id/etCatatanKunjungan"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_text_area"
+                android:gravity="top"
+                android:hint="Tuliskan hasil kunjungan..."
+                android:padding="14dp"
+                android:textSize="14sp" />
 
-            <LinearLayout
-                android:id="@+id/cardCatatan"
+            <!-- STATUS RUMAH KOSONG (Revisi Tahap 6) -->
+            <CheckBox
+                android:id="@+id/cbRumahKosong"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_detail_note"
-                android:orientation="vertical"
-                android:paddingStart="20dp"
-                android:paddingTop="20dp"
-                android:paddingEnd="20dp"
-                android:paddingBottom="24dp">
+                android:layout_marginTop="16dp"
+                android:text="Rumah Kosong (Nasabah tidak ada)"
+                android:textColor="#B71C1C"
+                android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+            <!-- TOMBOL SIMPAN -->
+            <Button
+                android:id="@+id/btnSimpanKunjungan"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_primary_button"
+                android:backgroundTint="@null"
+                android:text="SIMPAN KUNJUNGAN"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/tvCatatan"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_weight="1"
-                        android:lineSpacingExtra="5dp"
-                        android:text="Nasabah bersedia melakukan pembayaran cicilan pada tanggal 20 Oktober melalui transfer bank. Kondisi toko terpantau ramai dan nasabah kooperatif saat proses penagihan."
-                        android:textColor="#122D40"
-                        android:textSize="15sp" />
-                </LinearLayout>
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-    <!-- BOTTOM NAVIGATION -->
-    <LinearLayout
-        android:id="@+id/bottomNavigation"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_gravity="bottom"
-        android:background="#EAF7FF"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp">
-
-        <!-- HOME TIDAK AKTIF -->
-        <LinearLayout
-            android:id="@+id/navHome"
-            android:layout_width="72dp"
-            android:layout_height="56dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:src="@drawable/home_icon"
-                android:tint="@color/neutral" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Home"
-                android:textColor="@color/neutral"
-                android:textSize="10sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" />
-
-        <!-- KUNJUNGAN TIDAK AKTIF -->
-        <LinearLayout
-            android:id="@+id/navKunjungan"
-            android:layout_width="88dp"
-            android:layout_height="56dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:src="@drawable/kunjungan_icon"
-                android:tint="@color/neutral" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Kunjungan"
-                android:textColor="@color/neutral"
-                android:textSize="10sp" />
-        </LinearLayout>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" />
-
-        <!-- HISTORY AKTIF -->
-        <LinearLayout
-            android:id="@+id/navHistory"
-            android:layout_width="72dp"
-            android:layout_height="56dp"
-            android:background="@drawable/bg_bottom_nav_active"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:src="@drawable/history_24"
-                android:tint="@color/white" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="History"
-                android:textColor="@color/white"
-                android:textSize="10sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
 </FrameLayout>

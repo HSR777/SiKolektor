@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
 
-// Mengelola tampilan riwayat kunjungan menggunakan RecyclerView (Kriteria 6)
+// Mengelola tampilan riwayat kunjungan (Tahap 3: Hanya Berhasil & Rumah Kosong)
 public class RiwayatFragment extends Fragment {
 
     private RecyclerView recyclerView;
@@ -24,13 +24,12 @@ public class RiwayatFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // Menggunakan layout riwayat yang sudah ada
         View view = inflater.inflate(R.layout.activity_riwayat_kunjungan, container, false);
 
-        // Menyesuaikan ID dengan layout activity_riwayat_kunjungan.xml
         recyclerView = view.findViewById(R.id.rvRiwayat);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // Navigasi ke Detail menggunakan Parcelable (Kriteria 7)
         adapter = new KunjunganAdapter(listKunjungan, kunjungan -> {
             Intent intent = new Intent(getActivity(), DetailKunjunganActivity.class);
             intent.putExtra("DATA_KUNJUNGAN", kunjungan); 
@@ -45,8 +44,8 @@ public class RiwayatFragment extends Fragment {
 
     private void loadDataFromDatabase() {
         Executors.newSingleThreadExecutor().execute(() -> {
-            // Mengambil data dari tabel_kunjungan (Kriteria 5)
-            List<Kunjungan> data = AppDatabase.getInstance(getContext()).appDao().getAllKunjungan();
+            // Filter: Hanya menampilkan Berhasil atau Rumah Kosong (Sesuai Revisi Tahap 3)
+            List<Kunjungan> data = AppDatabase.getInstance(getContext()).appDao().getHistoryKunjungan();
             if (getActivity() != null) {
                 getActivity().runOnUiThread(() -> {
                     listKunjungan.clear();
@@ -55,5 +54,11 @@ public class RiwayatFragment extends Fragment {
                 });
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadDataFromDatabase();
     }
 }

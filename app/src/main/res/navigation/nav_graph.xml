@@ -12,9 +12,15 @@
         tools:layout="@layout/activity_home_dashboard" />
 
     <fragment
+        android:id="@+id/kunjunganFragment"
+        android:name="com.example.sikolektor.KunjunganFragment"
+        android:label="Kunjungan"
+        tools:layout="@layout/activity_daftar_kunjungan" />
+
+    <fragment
         android:id="@+id/riwayatFragment"
         android:name="com.example.sikolektor.RiwayatFragment"
-        android:label="Riwayat"
+        android:label="History"
         tools:layout="@layout/activity_riwayat_kunjungan" />
 
 </navigation>
