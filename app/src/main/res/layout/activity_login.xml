@@ -34,8 +34,8 @@
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:lineSpacingExtra="2dp"
-            android:text=""
-            android:textColor="@color/text_light_blue"
+            android:text="Sistem Informasi Laporan dan Absensi Kolektor"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
 
